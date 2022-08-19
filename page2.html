@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>products list</title>
+    <link rel="stylesheet" href="productsliststyle.css">
+
+</head>
+
+<body style="background-color: white" onload="run()">
+    <header id="hdr">
+        <center><h2 style="text-align: center;"> מערכת פתק</h2></center>
+    </header>
+
+  <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add Product</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <form id="addProduct" class="form-group">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-6">
+                <label for="name"><b>Product Name</b></label>
+              </div>
+              <div class="col-6">
+                  <input type="text" id="name" placeholder="Product Name" name="pname" class="form-control name ui-autocomplete-input" autocomplete="off" required="">
+              </div>
+              <br><br>
+              <div class="col-6">
+                <label for="quantity"><b>Quantity </b><span class="opt">(Optional)</span></label>
+              </div>
+              <div class="col-6">
+                <input type="number" id="quantity" placeholder="Quantity" name="quantity" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary addproduct" id="addproduct">Submit</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Done</button>
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal remove" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Product Deletion</h5>
+        </div>
+        <div class="modal-body">
+          <p class="mbody">You are about to delete - - from your list</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" id="pdelete">Delete</button>
+          <button type="button" class="btn btn-secondary" id="pcancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container text-center">
+    <h1 class="pagetitle">Products List</h1>
+  </div>
+  <div class="container text-right">
+    <br>
+    <div class="row">
+      <div class="col-6">
+        <label for="createlist"><b>Total Lists:</b></label>
+      </div>
+      <div class="col-1">
+        <button id="total" class="btn btn-dark" disabled="">1</button>
+      </div>
+    </div>
+    <hr>
+  </div>
+  
+    <br>
+    <div class="container table-responsive" id="allLists">
+      
+      <div class="row">
+        <div class="col-4 col-md-2">
+          <label for="createlist"><b>Current List</b></label>
+        </div>
+        <div class="col-2 col-md-1">
+          <button id="current" class="btn btn-dark" disabled="">1</button>
+        </div>
+        <div class="col-6 col-md-9">
+          <button type="button" class="btn btn-info" id="addproductbtn">
+            Add Product
+          </button>
+        </div>
+      </div>
+      <br>
+    
+    <table class="table table-dark table-hover shadow-lg" data-id="1"><thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Purchased</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody><tr data-id="1">
+                                <th scope="row" class="trow">1</th>
+                                <td class="name" id="fname">Bread</td>
+                                <td class="quantity" id="quantity">25</td>
+                                <td class="purchase" id="purchase">✖</td>
+<td>
+<button type="submit" class="btnPurchase btn btn-outline-light">Purchase</button>
+<button type="submit" class="btnRemove btn btn-outline-light">Remove</button></td>
+                            </tr></tbody></table></div>
+    <div class="container">
+      <hr>
+      <div class="row">
+        <div class="col-7 col-md-4">
+          <div class="btn-group">
+            <button id="lists" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List 1</button>
+            <div class="dropdown-menu" id="drop">
+                                
+            <a class="dropdown-item" data-id="1">List 1</a></div>
+          </div>
+        </div>
+        <div class="col-5 col-md-8">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultCheck1">
+            <label class="custom-control-label" for="defaultCheck1">Copy List</label>
+          </div>
+        </div>
+        <div class="col-12">
+          <br>
+          <div class="alert alert-info" id="ralert" role="alert">
+            You may create a copy of any list by having the copy box 'Checked' in addition to select the relevant list.
+          </div>
+        </div>
+        <br><br><br>
+        <div class="col-8 col-md-4">
+          <label for="createlist"><b>Create a New Purchase List:</b></label>
+        </div>
+        <div class="col-4 col-md-8">
+          <button type="button" id="createlist " class="btn btn-info createlist">Create</button>
+        </div>
+        
+        <br><br>
+      </div>
+    </div>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp
+    <a href="homePage.html">
+      <button type="button" id="Exit">Exit</button>
+  </a>
+   
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp
+  <a href="thankYou.html">
+    <button id="dismiss-popup-btn">
+      Finish
+    </button>
+  </a>
+
+  
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+<ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul><div role="status" aria-live="assertive"
+ aria-relevant="additions" class="ui-helper-hidden-accessible"></div>
+
+ <footer id=ftr>
+  <p id="p10" style="text-align: center;"> &copy; Raghad Knani, Aseel Abu Fani, 2021</p>
+</footer>
+<script>
+  
+  // Array of lists contain array of products for each list.
+const lists = [
+    {
+        'id':1,
+        products : [{'id':1,'name':'gift Card','Quantity':'1','Purchased':"✖"}]
+    },
+]
+
+// two variables to save the product ID to be deleted of a specific list.
+let pToDelete = -1;
+let lToDelete = -1;
+
+const productsNames = ["gift Card"];
+
+$(document).ready(function (){
+    //two constants describe the buttons design whenever the product purchased or not..
+    const btnPurchasedtxt = `<td class="purchase" id="purchase">✔</td>
+    <td>
+    <button type="submit" class="btnPurchase btn btn-outline-light">Unpurchase</button>
+    <button type="submit" class="btnRemove btn btn-outline-light" hidden>Remove</button></td>`;
+    const btnUnPurchasedtxt = `<td class="purchase" id="purchase">✖</td>
+    <td>
+    <button type="submit" class="btnPurchase btn btn-outline-light">Purchase</button>
+    <button type="submit" class="btnRemove btn btn-outline-light">Remove</button></td>`;
+
+    let tables = parseInt(document.getElementById('total').innerHTML);
+    if(lists.length == 0){
+        let warn = document.createElement('div');
+        warn.classList.add("alert");
+        warn.classList.add("alert-danger");
+        warn.setAttribute("id", "pralert");
+        warn.setAttribute("role", "alert");
+        warn.innerHTML = `There are no lists. Click on "Create" Button below in order to create a new purchase list!`
+        document.getElementById('allLists').appendChild(warn);
+        document.getElementById('addproduct').setAttribute("disabled", true);
+        document.getElementById('lists').setAttribute("disabled", true);
+        document.getElementById('defaultCheck1').setAttribute("disabled", true);
+    }
+    for(list of lists){
+        CreateList(list, false);
+    }
+    sortTables();
+    
+    $("#name").autocomplete({
+       source: productsNames
+    });
+    
+    $(document).on('click', '#addproductbtn', function () {
+        $('#exampleModal').fadeIn( function() {
+            $('#exampleModal').modal('show');
+        });
+    });
+
+
+    $(document).on('click', '#pdelete', function () {
+        let productID = pToDelete;
+        let listID = lToDelete;
+        let fromTable;
+        let rowToRemove;
+        $( "table" ).each(function( index ) {
+            if($(this).data("id") === listID){
+                fromTable = $(this);
+            }
+        });
+
+        $( "table tr" ).each(function( index ) {
+            if($(this).data("id") === productID){
+                rowToRemove = $(this);
+            }
+        });
+
+        rowToRemove.fadeOut(function () {
+            rowToRemove.remove();
+            for(list of lists){
+                if(list.id === parseInt(listID)){
+                    for(product of list.products){
+                        if(product.id === parseInt(productID)){
+                            list.products.splice(product,1);
+                        }
+                    }
+                }
+            }
+            sortTables();
+        })
+        $('.modal.remove').fadeOut( function() {
+            $('.modal.remove').modal('hide');
+        });
+        pToDelete = -1;
+        lToDelete = -1;
+    });
+    $(document).on('click', '#pcancel', function () {
+        $('.modal.remove').fadeOut( function() {
+            $('.modal.remove').modal('hide');
+        });
+        pToDelete = -1;
+        lToDelete = -1;
+    });
+
+    $(document).on('click', '.btnRemove', function () {
+        $('.modal.remove').fadeIn( function() {
+            $('.modal.remove').modal('show');
+        });
+
+        pToDelete = $(this).parents("tr").data("id");
+        lToDelete = $(this).parents("table").data("id");
+        pName = $(this).parents("tr").find(".name").text();
+        listNum = $('#current').text();
+        $('.mbody').html("You are about to delete <b>"+ pName + "</b> from your list (" + listNum +")")
+    })
+
+    $(document).on('click', '.btnPurchase', function () {
+        let productID = $(this).parents("tr").data("id");
+        let listID = $(this).parents("table").data("id");
+        let product;
+        for(list of lists){
+            if(list.id === listID){
+                for(product1 of list.products){
+                    if(product1.id === productID){
+                        if(product1.Purchased === "✔"){
+                            product1.Purchased = "✖";
+                        }else {
+                            product1.Purchased = "✔";
+                        }
+                    }
+                }
+            }
+        }
+        sortTables();
+    })
+    $("form#addProduct").submit(function (e) {
+        e.preventDefault();
+        let name = $("#name").val();
+        let tableid = $("#current").text();
+        let Quantity = $("#quantity").val();
+        let Purchased = "✖";
+        for(list of lists){
+            if(list.id == tableid){
+                let id = list.products.length + 1;
+                const listToAdd = {id,name, Quantity, Purchased};
+                list.products.push(listToAdd);
+            }
+        }
+        if($.inArray(name, productsNames) === -1){
+            productsNames.push(name);
+        }
+        sortTables();
+        $(this).find("input").val("");
+        $("#name").focus();
+    })
+    
+
+    $(document).on('click', '.createlist', function () {
+        
+        let total = lists.length + 1;
+        let list;
+        if(document.getElementById("defaultCheck1").checked){
+            document.getElementById("defaultCheck1").checked = false;
+            let listid = document.getElementById("current").innerHTML;
+            let products = [];
+            for(list1 of lists){
+                if(list1.id == parseInt(listid))
+                    products = list1.products.slice();
+            }
+            list = {"id":total,products}
+        }else{
+            list = {"id":total,products:[]}
+        }
+        lists.push(list);
+        CreateList(list,true);
+        sortTables();
+    });
+
+    $(document).on('click', '.dropdown-item', function () {
+        for(list1 of lists){
+            if(list1.id === $(this).data("id"))
+                ShowTable(list1)
+        }
+    });
+
+    function loadProducts(){
+        $(".table").each(function(){
+            $(this).children("tbody").html("");
+        });
+
+        for(list of lists){
+            if(list.products.length > 0){
+                let i = 1;
+                for(product of list.products){
+                    $(".table").each(function(){
+                        if($(this).data("id") == list.id){
+                            if(product.Purchased === "✔"){
+                                let tr = `<tr data-id="${parseInt(product.id)}">
+                                    <th scope="row" class="trow">${i}</th>
+                                    <td class="name" id="fname">${product.name}</td>
+                                    <td class="quantity" id="quantity">${product.Quantity}</td>
+                                    ${btnPurchasedtxt}
+                                </tr>`;
+                                $(this).children("tbody").append(tr);
+                            }else {
+                                let tr = `<tr data-id="${parseInt(product.id)}">
+                                    <th scope="row" class="trow">${i}</th>
+                                    <td class="name" id="fname">${product.name}</td>
+                                    <td class="quantity" id="quantity">${product.Quantity}</td>
+                                    ${btnUnPurchasedtxt}
+                                </tr>`;
+                                $(this).children("tbody").append(tr);
+                            }
+                        }
+                    });
+                    i=i+1;
+                }
+            }
+        }
+    }
+
+    function sortTables(){
+        for(list of lists){
+            list.products.sort(function(a,b){
+                if (( a.Purchased ===  "✔" && b.Purchased === "✔" ) || ( a.Purchased ===  "✖" && b.Purchased === "✖") ){
+                    if(a.name.toLowerCase() > b.name.toLowerCase())
+                        return 1;
+                    else 
+                        return -1;
+                }
+                else if(a.Purchased ===  "✔" && b.Purchased === "✖")
+                    return 1;
+                else if(a.Purchased ===  "✖" && b.Purchased === "✔")
+                    return -1;
+            })
+        }
+        loadProducts();
+    }
+    
+    function ShowTable(list){
+        $(".table").each(function(){
+            if($(this).data("id") == list.id){
+                $(this).removeAttr("hidden");
+            }else{
+                $(this).attr("hidden",true);
+            }
+        });
+        document.getElementById("current").innerHTML = list.id;
+        document.getElementById("lists").innerHTML = "List " + list.id
+    }
+    
+    function CreateList(list, alrt){
+        let table = document.createElement('table');
+        table.classList.add("table")
+        table.classList.add("table-dark")
+        table.classList.add("table-hover")
+        table.classList.add("shadow-lg");
+        table.setAttribute("data-id", list.id);
+        table.innerHTML = `<thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Purchased</th>
+          <th ></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>`;
+        document.getElementById('allLists').appendChild(table);
+    
+        let drop = document.createElement('a');
+        drop.classList.add("dropdown-item");
+        drop.setAttribute("data-id",list.id)
+        drop.innerHTML = "List " + list.id;
+        document.getElementById('drop').appendChild(drop);
+        if(list.length == 0){
+            document.getElementById('addproduct').removeAttribute("disabled");
+            document.getElementById('lists').removeAttribute("disabled");
+            document.getElementById('allLists').removeChild(document.getElementById('pralert'))
+            document.getElementById('defaultCheck1').removeAttribute("disabled");
+        }
+        ShowTable(list);
+        if(alrt)
+            alert("Purchase List (" + list.id + ") Has Been Successfully Created!")
+        document.querySelector("input#name").value = "";
+        document.querySelector("input#quantity").value = "";
+        document.getElementById('total').innerHTML = lists.length;
+    }
+
+});
+
+</script>
+
+</body>
+
+
+</html>

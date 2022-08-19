@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleForAll.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Changeing Password Page</title>
+    <style>
+        input:invalid{background-color: rgb(248, 205, 205);}
+        input:valid{background-color: lightgreen;}
+    </style>
+    <script>
+        function checkPassword(){
+            var Password1 = document.getElementById("password1");
+            var Password2 = document.getElementById("confirmpassword1");
+            if(Password1.value == Password2.value){
+                Password2.setCustomValidity("");
+            }else{
+                Password2.setCustomValidity("Password did not match");
+            }
+        }
+    </script>
+</head>
+<body style="background-color: white">
+    <header id="hdr">
+        <h1 id="h1" style="text-align: center;"> מערכת פתק</h1>
+    </header>
+    <content>
+        <h1 id="h2" style="text-align: right;"> :שחזור/שינוי סיסמא</h1>
+        <form action="">
+            <center>
+               <table align="center">
+                    <tr>
+                        <td style="text-align: right;">
+                            <input type="password" id="password" placeholder="Please Enter Your Old Password" required>
+                        </td>
+                        <td style="text-align: right;">
+                            <label style="font-size: 25px;font-weight: bold;">:סיסמא ישנה</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">
+                            <input type="password" id="password1" placeholder="Please Enter A New Password" name="newpass"
+                            title="please enter a password with minimum 5 characters and contains only letters and numbers" 
+                            pattern="[A-Za-z\d]{5,15}" oninput="checkPassword();" required/>
+                        </td>
+                        <td style="text-align: right;">
+                            <label style="font-size: 25px;font-weight: bold;">:סיסמא חדשה</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">
+                            <input type="password" id="confirmpassword1" placeholder="Please Confirm Your New Password" 
+                            title="please confirm your new password" oninput="checkPassword();" required/>
+                        </td>
+                        <td style="text-align: right;">
+                            <label style="font-size: 25px;font-weight: bold;">:אימות סיסמא חדשה</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br><br>
+                            <button type="submit" id="btn1">שחזר סיסמא</button>
+                            <br><br><br><br>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table> 
+                <a href="homePage.html">
+                    <button type="button" id="back">Back</button>
+                </a>
+            </center>
+        </form>
+    </content>
+    <footer id="ftr">
+        <p id="p10" style="text-align: center;"> &copy; Raghad Knani, Aseel Abu Fani, 2021</p>
+    </footer>
+</body>
+</html>

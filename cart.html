@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>products list</title>
+    <link rel="stylesheet" href="productsliststyle.css">
+    <script src="shopping.js"></script>
+</head>
+
+<body style="background-color: white" onload="loadCart()">
+    <header id="hdr">
+        <center>
+        <h1 id="h11"> מערכת פתק</h1>
+        </center>
+    </header>
+    <!-- <nav>
+        <a href="productslist.html">shop</a>
+        <a href="cart.html">cart</a>
+    </nav> -->
+    <h1>Cart Items: </h1><h2 id="itemCount">0</h2>
+    <ul id="cartProducts">
+
+    </ul>
+
+   
+
+    <center>
+        <a href="page1.html">
+            <button type="button" id="back">Back</button>
+        </a>
+        <div class="popup center">
+            <div class="icon">
+              <i class="fa fa-check"></i>
+            </div>
+            <div class="title">
+              Before you Finish;
+            </div>
+            <div class="description">
+                We have a list of special
+                 products, Do you want to peek at it?
+            </div>
+            <div class="adding-btn">
+              <a href="page2.html">
+                <button class="move-to-another-list">Add More</button>
+              </a>
+            </div>
+            <div class="dismiss-btn">
+              <a href="thankYou.html">
+                <button id="dismiss-popup-btn">
+                  No, Thank you!
+                </button>
+              </a>
+            </div>
+          </div>
+          <div>
+            <button id="open-popup-btn">
+              Finish!
+            </button>
+          </div>
+    </center>
+    <script>
+        document.getElementById("open-popup-btn").addEventListener("click",function(){
+            document.getElementsByClassName("popup")[0].classList.add("active");
+          });
+           
+          document.getElementById("dismiss-popup-btn").addEventListener("click",function(){
+            document.getElementsByClassName("popup")[0].classList.remove("active");
+          });
+    </script>
+
+<br><br><br><br>
+
+    <footer id=ftr>
+        <p id="p10" style="text-align: center;"> &copy; Raghad Knani, Aseel Abu Fani, 2021</p>
+    </footer>
+</body>
+</html>

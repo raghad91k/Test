@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600&display=swap');
+#hdr{
+    background-color: rgba(141, 252, 228, 0.205);
+}
+#ftr{
+    background-color: rgba(141, 252, 228, 0.205);
+
+}
+#h1{
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+    font-size: 90px;
+}
+#h2{
+    font-size: 35px;
+    font-weight: bolder;
+    border-bottom-width: 30px;
+    border-bottom-color: orangered;
+}
+#btn1{
+    background-color: rgba(70, 179, 159, 0.205);
+    font-weight: bold;
+    font-size: 30px;
+}
+#p10{
+    font-size: 30px;
+    font-weight: bold;
+}
+#fullname{
+    width: 250px;
+    height: 25px;
+}
+#email{
+    width: 250px;
+    height: 25px;
+}
+#username{
+    width: 250px;
+    height: 25px;
+}
+#phonenum{
+    width: 250px;
+    height: 25px;
+}
+#password{
+    width: 250px;
+    height: 25px;
+}
+#confirmpassword{
+    width: 250px;
+    height: 25px;
+}
+#password1{
+    width: 250px;
+    height: 25px;
+}
+#confirmpassword1{
+    width: 250px;
+    height: 25px;
+}
+input:invalid{
+    background-color: rgb(252, 218, 218);
+}
+input:valid{
+    background-color:blanchedalmond;
+}
+#email{
+    width: 250px;
+    height: 25px;
+}
+*{
+    font-family: 'Montserrat', sans-serif;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#back{
+    background-color:rgba(37, 110, 95, 0.507);
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 10px;
+}
+#butsave{
+    background-color:rgba(6, 6, 131, 0.432);
+    font-weight: bold;
+    font-size: 15px;
+    /* border-radius: 10px; */
+}
+#back:hover{
+  background-color:rgba(81, 123, 240, 0.507) ;
+  cursor: pointer;
+}
+#success{
+    background-color:rgb(9, 114, 5);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+body {
+    background: #d9f7e9;
+  }
+  #register_form h1 {
+    text-align: center;
+  }
+  #register_form {
+    width: 37%;
+    margin: 100px auto;
+    padding-bottom: 30px;
+    border: 1px solid #918274;
+    border-radius: 5px;
+    background: white;
+  }
+  #register_form input {
+    width: 80%;
+    height: 35px;
+    margin: 5px 10%;
+    font-size: 1.1em;
+    padding: 4px;
+    font-size: .9em;
+  }
+  #products_form h1 {
+    text-align: center;
+  }
+  #products_form {
+    width: 37%;
+    margin: 100px auto;
+    padding-bottom: 30px;
+    border: 1px solid #918274;
+    border-radius: 5px;
+    background: white;
+  }
+  #products_form input {
+    width: 80%;
+    height: 35px;
+    margin: 5px 10%;
+    font-size: 1.1em;
+    padding: 4px;
+    font-size: .9em;
+  }
+  #reg_btn {
+    height: 35px;
+    width: 80%;
+    margin: 5px 10%;
+    color: white;
+    background: #3B5998;
+    border: none;
+    border-radius: 5px;
+  }
+  #done_btn {
+    height: 35px;
+    width: 80%;
+    margin: 5px 10%;
+    color: white;
+    background: #3B5998;
+    border: none;
+    border-radius: 5px;
+  }
+  /*Styling for errors on form*/
+  .form_error span {
+    width: 80%;
+    height: 35px;
+    margin: 3px 10%;
+    font-size: 1.1em;
+    color: #D83D5A;
+  }
+  .form_error input {
+    border: 1px solid #D83D5A;
+  }
+  
+  /*Styling in case no errors on form*/
+  .form_success span {
+    width: 80%;
+    height: 35px;
+    margin: 3px 10%;
+    font-size: 1.1em;
+    color: green;
+  }
+  .form_success input {
+    border: 1px solid green;
+  }
+  #error_msg {
+    color: red;
+    text-align: center;
+    margin: 20px auto;
+  }
+  #click{
+    background-color:rgba(122, 240, 161, 0.959);
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 10px;
+  }
+  #click:hover{
+    background-color:rgb(230, 103, 129);
+    cursor: pointer;
+    }
+   
+    body {
+      font-size: 19px;
+    }
+    table{
+      width: 50%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    tr {
+      border-bottom: 1px solid #cbcbcb;
+    }
+    th, td{
+      border: none;
+      height: 30px;
+      padding: 2px;
+    }
+    tr:hover {
+      background: #F5F5F5;
+    }
+    
+    form {
+      width: 45%;
+      margin: 50px auto;
+      text-align: left;
+      padding: 20px; 
+      border: 1px solid #bbbbbb; 
+      border-radius: 5px;
+    }
+    
+    .input-group {
+      margin: 10px 0px 10px 0px;
+    }
+    .input-group label {
+      display: block;
+      text-align: left;
+      margin: 3px;
+    }
+    .input-group input {
+      height: 30px;
+      width: 93%;
+      padding: 5px 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid gray;
+    }
+    .btn {
+      padding: 10px;
+      font-size: 15px;
+      color: white;
+      background: #5F9EA0;
+      border: none;
+      border-radius: 5px;
+    }
+    .edit_btn {
+      text-decoration: none;
+      padding: 2px 5px;
+      background: #2E8B57;
+      color: white;
+      border-radius: 3px;
+    }
+    
+    .del_btn {
+      text-decoration: none;
+      padding: 2px 5px;
+      color: white;
+      border-radius: 3px;
+      background: #800000;
+    }
+    .msg {
+      margin: 30px auto; 
+      padding: 10px; 
+      border-radius: 5px; 
+      color: #3c763d; 
+      background: #dff0d8; 
+      border: 1px solid #3c763d;
+      width: 50%;
+      text-align: center;
+    }
